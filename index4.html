@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <h1> HEALTH PLANS</h1>
+    </header>
+
+  <div class="plan-container">
+    <div class="plan">
+      <h2>Advance Plan</h2>
+      <ul>
+        <li>Coverage: Advance</li>
+        <li>Premium: ₹5000/month</li>
+        <li>Deductible: ₹500</li>
+        <li>Co-pay: ₹100/visit</li>
+      </ul>
+      <button id="start-trial">Start Plan</button>
+    </div>
+
+    </div>
+
+  <script>
+    const startTrialButton = document.getElementById('start-trial');
+
+    startTrialButton.addEventListener('click', () => {
+      // Implement your trial logic here
+      // For example, you could set a cookie or local storage to track the start date
+      // and check for expiration after 6 days
+
+      // Redirect to a confirmation page or display a message indicating the trial has started
+      window.location.href = 'trial-confirmation.html';
+    });
+  </script>
+</body>
+</html>
+
+    
+    </div>
+
+  <div class="plan-container">
+    <div class="plan">
+      <h2>Basic Plan</h2>
+      <ul>
+        <li>Coverage: Essential</li>
+        <li>Premium: ₹1000/month*</li>
+        <li>Deductible: ₹300</li>
+        <li>Co-pay: ₹50/visit</li>
+        <li>Free trial: 7 days</li>
+        <li>Only after free trail ends</li>
+      </ul>
+      <button id="start-trial">Start Free Trial</button>
+    </div>
+
+    </div>
+
+  <script>
+    const startTrialButton = document.getElementById('start-trial');
+       
+    startTrialButton.addEventListener('click', () => {
+      // Implement your trial logic here
+      // For example, you could set a cookie or local storage to track the start date
+      // and check for expiration after 6 days
+
+      // Redirect to a confirmation page or display a message indicating the trial has started
+      window.location.href = 'trial-confirmation.html';
+    });
+  </script>
+</body>
+</html>
+
+    
+    </div>
+</body>
+</html>

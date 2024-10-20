@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Chat Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8518e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user {
+            background-color: #d1e7dd; /* Light green for user messages */
+            align-self: flex-end;
+        }
+        .ai {
+            background-color: #cfe2ff; /* Light blue for AI messages */
+            align-self: flex-start;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2>Community Chat Support</h2>
+        <div class="messages" id="messages"></div>
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        const responses = {
+            "hi": "Hello! How can I assist you today?",
+            "help": "Sure! What do you need help with?",
+            "thank you": "You're welcome! If you have more questions, feel free to ask.",
+            "default": "I'm here to help! Please ask your question."
+        };
+
+        sendButton.addEventListener('click', () => {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, 'user');
+                userInput.value = '';
+                setTimeout(() => {
+                    const aiResponse = getResponse(userMessage.toLowerCase());
+                    addMessage(aiResponse, 'ai');
+                }, 500);
+            }
+        });
+
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = text;
+            messageDiv.classList.add('message', sender);
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+        }
+
+        function getResponse(input) {
+            return responses[input] || responses.default;
+        }
+    </script>
+</body>
+</html>

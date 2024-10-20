@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menstrual Cycle Tracker</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background : #c75ff4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .tracker-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="date"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="tracker-container">
+        <h2>Menstrual Cycle Tracker</h2>
+        <form action="/track" method="POST">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start_date" required>
+
+            <label for="cycle-length">Cycle Length (days):</label>
+            <input type="number" id="cycle-length" name="cycle_length" min="21" max="35" required>
+
+            <label for="period-length">Period Length (days):</label>
+            <input type="number" id="period-length" name="period_length" min="1" max="10" required>
+        </body>
+        </html>
+
+            
